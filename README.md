@@ -2,6 +2,8 @@
 
 A minimal local web app for compressing and cropping images directly in the browser.
 
+![homepage shot](./screenshot/home_shot.png)
+
 ## Overview
 
 This project provides a browser-based image compressor that runs locally from a simple Node.js static server. It is designed to:
