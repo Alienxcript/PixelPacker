@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local Image Compressor</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <h1>Local Image Compressor</h1>
+      <p>Compress PNG/JPEG/WebP/GIF/BMP images, crop them, and process multiple files in one session.</p>
+    </header>
+
+    <main>
+      <section class="panel">
+        <div class="panel-header">
+          <h2>1. Load images</h2>
+          <span class="hint">Drag & drop or choose files</span>
+        </div>
+
+        <div class="drop-zone" id="dropZone">
+          Drop images here or click to browse
+          <input id="fileInput" type="file" multiple accept="image/*" />
+        </div>
+
+        <div id="fileList" class="file-list"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>2. Crop & preview</h2>
+          <span class="hint">Draw a selection on the preview and click Apply crop</span>
+        </div>
+
+        <div class="preview-card">
+          <canvas id="previewCanvas" width="640" height="360"></canvas>
+          <div class="canvas-label">Preview canvas</div>
+        </div>
+
+        <div class="control-row">
+          <button id="applyCropButton" disabled>Apply crop</button>
+          <button id="resetCropButton" disabled>Reset crop</button>
+        </div>
+
+        <div class="settings-grid">
+          <label>
+            Output format
+            <select id="outputFormat">
+              <option value="keep">Keep original</option>
+              <option value="image/jpeg">JPEG</option>
+              <option value="image/png">PNG</option>
+              <option value="image/webp">WebP</option>
+            </select>
+          </label>
+
+          <label>
+            Quality <span id="qualityValue">0.80</span>
+            <input id="qualityRange" type="range" min="0.1" max="1" step="0.05" value="0.8" />
+          </label>
+        </div>
+
+        <div class="control-row">
+          <button id="compressAllButton" disabled>Compress all selected</button>
+          <button id="saveAllButton" disabled>Save all to folder</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>3. Results</h2>
+          <span class="hint">Download compressed files individually or save the batch if supported.</span>
+        </div>
+
+        <div id="resultList" class="result-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
