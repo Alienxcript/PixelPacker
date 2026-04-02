@@ -1,4 +1,4 @@
-# Local Image Compressor
+# Pixelpacker
 
 A minimal local web app for compressing and cropping images directly in the browser.
 
